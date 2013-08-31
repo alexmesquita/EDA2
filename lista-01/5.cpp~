@@ -55,13 +55,18 @@ int printElementos(int const *vetor)
 		return NULO;
 	}
 	int i = begin;
+	bool quebrarLoop=false;
 	while(end>=0 && vetor[i]>=0)
 	{
 		cout << vetor[i] << endl;
 		i=(i+1)%TAMANHO;
 		if(i==begin)
 		{
-			break;
+			if(quebrarLoop)
+			{
+				break;
+			}
+			quebrarLoop=true;
 		}
 		
 	}
