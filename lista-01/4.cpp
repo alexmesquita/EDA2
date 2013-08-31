@@ -18,7 +18,8 @@ void menu()
 {
 	cout << "1 - Busca Sequencial" << endl;
 	cout << "2 - Inserir Elemento" << endl;
-	cout << "3 - Sair" << endl;
+	cout << "3 - Visualizar Vetor" << endl;
+	cout << "4 - Sair" << endl;
 }
 
 void quantidadeIndices()
@@ -105,22 +106,59 @@ vector<int> excluirElemento(int posicao, vector<int> vetor, Indice *indice)
 	return vetor;
 }
 
+vector<int> inserirElemento(int valor, vector<int> vetor, Indice *indice)
+{
+	if(tamVetor == quant)
+	{
+		cout << "Impossível inserir elemento, vetor cheio..." << endl;
+		return vetor;
+	}
+	
+	if(valor > vetor[tamVetor-1])
+	{
+		vetor[tamVetor] = valor;
+		tamVetor++;
+		
+		return vetor;
+	}
+	
+	for(int i=0;i<quant;i++)
+	{
+		if(valor == vetor[i])
+		{
+			cout << "Impossível inserir elemento, valor já existe..." << endl;
+			break;
+		}
+		else if(valor < vetor[i])
+		{
+			for(int j=tamVetor;j>i;j--)
+			{
+				vetor[j] = vetor[j-1];
+			}
+			vetor[i] = valor;
+			break;
+		}
+	}
+	
+	tamVetor++;
+	return vetor;
+}
+
 int main()
 {
 	vector<int> vetor = criarVetor();
 	Indice *indice = criarIndice(vetor);
 	
+	int valor = 0;
 	int opcao = 0;
 
 	while(true)
-	{			
+	{
 		menu();
 		cin >> opcao;
 	
 		if(opcao==1)
 		{
-			int valor;
-
 			cout << "Valor: ";
 			cin >> valor;
 		
@@ -135,14 +173,21 @@ int main()
 			cout << "Valor encontrado na posicao " << resultado << endl;
 		
 			vetor = excluirElemento(resultado, vetor, indice);
-		
+		}
+		else if(opcao==2)
+		{
+			cout << "Valor: ";
+			cin >> valor;
+			
+			vetor = inserirElemento(valor, vetor, indice);
+		}
+		else if(opcao==3)
+		{
 			for(int i=0;i<tamVetor;i++)
 				cout << vetor[i] << endl;
-		}
+		}		
 		else
-		{
 			break;
-		}
 	}
 	
 	return 0;
