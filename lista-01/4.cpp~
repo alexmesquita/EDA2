@@ -18,7 +18,6 @@ void menu()
 {
 	cout << "1 - Busca Sequencial" << endl;
 	cout << "2 - Inserir Elemento" << endl;
-	cout << "3 - Sair" << endl;
 }
 
 void quantidadeIndices()
