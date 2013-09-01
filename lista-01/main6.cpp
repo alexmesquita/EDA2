@@ -1,12 +1,12 @@
 #include <iostream>
-#include "5.h"
+#include "6.h"
 
 using namespace std;
 
 int main()
 {
 	int *vetor = criarVetor();
-	if(vetor==NULO)
+	if(!vetor)
 	{
 		cout <<"Erro ao Criar o vetor!" << endl;
 		return-1;
@@ -70,7 +70,7 @@ int main()
 			cout << "Elemento: ";
 			cin >> valor;
 
-			int resultado = buscaBinariaAnel(vetor, valor);
+			int resultado = buscaInterpolacao(vetor, valor);
 
 			switch(resultado)
 			{
@@ -99,17 +99,6 @@ int main()
 			}
 		}
 		else if(opcao==5)
-		{
-			int erro = printElementos(vetor);
-
-			switch(erro)
-			{
-				case NULO:
-					cout << "Erro: Vetor Nulo" << endl;
-				break;
-			}
-		}
-		else if(opcao==6)
 		{
 			continuar=sair(vetor);
 		}

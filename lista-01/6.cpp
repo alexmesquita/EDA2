@@ -1,43 +1,144 @@
 #include <iostream>
-#include <vector>
+#include "6.h"
 
 using namespace std;
 
-static const int vazio=-1;
-
-int buscarIndices(vector<int> vetor, unsigned int *begin, unsigned int *end)
+void menu()
 {
-	*end=vetor.size()-1;
-	for(unsigned int i=0; i<*end; i++)
+	cout << "1 - Inserir Elemento" << endl;
+	cout << "2 - Apagar Elemento" << endl;
+	cout << "3 - Busca por Interpolacao" << endl;
+	cout << "4 - Visualizar Vetor" << endl;
+	cout << "5 - Sair" << endl;
+	cout << "Opcao: ";
+}
+
+int *criarVetor()
+{
+	int *vetor = new int[TAMANHO];
+	
+	if(!vetor)
 	{
-		if(vetor[i]==-1)
-		{
-			cout << i << endl;
-			*end=i;
-			break;
-		}
-		
+		return 0;
+	}
+	
+	for(int i = 0; i<TAMANHO; i++)
+	{
+		vetor[i]=-1;
+	}
+	return vetor;
+}
+int sair(int *vetor)
+{
+	delete [] vetor;
+	return 0;
+}
+
+int printVetor(int const *vetor)
+{
+	if(!vetor)
+	{
+		return NULO;
+	}
+	for(int i = 0; i <= end; i++)
+	{
+		cout << vetor[i] << endl;
+	}
+	if(end<0)
+	{
+		cout << "O vetor esta vazio" << endl;
 	}
 	return 0;
 }
 
-
-int buscaInterpolacao(vector<int> vetor, int valor)
+int inserirElemento(int *vetor, int const valor)
 {
-	unsigned int begin = 0, end = 0;
-	buscarIndices(vetor, &begin, &end);
-	
-	unsigned int mid = 0;
-	
-	while(begin<=end)
+	if(!vetor)
 	{
-		mid = begin + (end-begin) * (valor-vetor[begin]) / (vetor[end]-vetor[begin]);
+		return NULO;
+	}
+	if(end<TAMANHO-1)
+	{
+		end++;
+		vetor[end]=valor;
+	}
+	else
+	{
+		return VETOR_CHEIO;
+	}
+	
+	int temp=0;
+	
+	for(int i=0;i < end; i++)
+	{
+		if(vetor[end]<vetor[i])
+		{
+			temp=vetor[end];
+			vetor[end]=vetor[i];
+			vetor[i]=temp;
+		}
+	}
+	return 0;
+}
+
+int excluirElemento(int *vetor, int const valor)
+{
+	if(end==NULO)
+	{
+		return VETOR_VAZIO;
+	}
+	if(!vetor)
+	{
+		return NULO;
+	}
+	
+	int position = buscaInterpolacao(vetor, valor);
+	if(position==NULO)
+	{
+		return NULO;
+	}
+	
+	else if(position==ELEMENTO_NAO_ENCONTRADO)
+	{
+		return ELEMENTO_NAO_ENCONTRADO;
+	}
+	
+	for(position; position<end; position++)
+	{
+		vetor[position]=vetor[++position];
+	}
+	end--;
+	return 0;
+}
+
+
+
+
+int buscaInterpolacao(int const *vetor, int const valor)
+{
+	int begin = 0, mid=0, endAuxiliar=end;
+	if(endAuxiliar==NULO)
+	{
+		return VETOR_VAZIO;
+	}
+	if(!vetor)
+	{
+		return NULO;
+	}
+	while(begin<=endAuxiliar)
+	{
+		
+		if(endAuxiliar != begin)
+		{
+		cout << begin << "-" << end << endl;
+			mid = begin + (endAuxiliar-begin) * (valor-vetor[begin]) / (vetor[endAuxiliar]-vetor[begin]);
+		}
 		if(vetor[mid] > valor)
 		{
-			end=mid-1;
-			if(vetor[end]<valor)
+			endAuxiliar=mid-1;
+			if(vetor[endAuxiliar]<valor)
 			{
-				return -1;
+				return ELEMENTO_NAO_ENCONTRADO;
 			}
 		}
 		else if(vetor[mid] < valor)
@@ -45,37 +146,16 @@ int buscaInterpolacao(vector<int> vetor, int valor)
 			begin=mid+1;
 			if(vetor[begin] > valor)
 			{
-				return -1;
+				return ELEMENTO_NAO_ENCONTRADO;
 			}
 		}
 		else
 		{
+		cout << "chegou 6" << endl;
 			return mid;
 		}
-		cout << begin <<"-"<< mid <<"-"<< end << endl;	
 	}
 	
-	return -1;
+	return ELEMENTO_NAO_ENCONTRADO;
 
 }
-
-int main()
-{
-	vector<int> vetor(20,-1);
-	
-	for(int i=0; i<20; i++)
-	{
-		vetor[i]=(i*10);
-	}
-	
-	int valor=0;
-	
-	cin >> valor;
-	
-	int result = buscaInterpolacao(vetor, valor);
-	
-	cout << result << endl;
-	
-	return 0;
-}
-

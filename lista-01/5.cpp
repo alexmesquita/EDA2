@@ -45,6 +45,11 @@ int printVetor(int const *vetor)
 	{
 		cout << vetor[i] << endl;
 	}
+	
+	if(end<0)
+	{
+		cout << "O vetor esta vazio" << endl;
+	}
 	return 0;
 }
 
@@ -64,6 +69,10 @@ int printElementos(int const *vetor)
 			break;
 		}
 		
+	}
+	if(end<0)
+	{
+		cout << "O vetor esta vazio" << endl;
 	}
 	return 0;
 }
