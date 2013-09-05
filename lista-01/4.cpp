@@ -61,7 +61,7 @@ void visualizarVetor(int *vetor)
 		cout << vetor[i] << endl;
 }
 
-int inserirElemento(int elemento, int *vetor)
+int inserirElemento(int elemento, int *vetor, Indice *indice)
 {
 	if(tamVetor==QUANT_TOTAL)
 	{
@@ -69,7 +69,9 @@ int inserirElemento(int elemento, int *vetor)
 		return VETOR_CHEIO;
 	}
 	
-	for(int i=0;i<tamVetor;i++)
+	int posicao = buscaPosicao(elemento, indice);
+	
+	for(int i=posicao;i<tamVetor;i++)
 	{
 		if(elemento == vetor[i])
 		{

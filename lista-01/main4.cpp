@@ -42,7 +42,7 @@ int main()
 			cout << "Elemento: ";
 			cin >> elemento;
 			
-			inserirElemento(elemento, vetor);
+			inserirElemento(elemento, vetor, indice);
 		}
 		else if(opcao==3)
 		{
