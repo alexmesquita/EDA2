@@ -6,7 +6,7 @@
 
 #define VETOR_CHEIO -1
 #define ELEMENTO_DUPLO -2
-#define ELEMENTO_INESISTENTE -3
+#define 
 
 typedef struct _Indice
 {

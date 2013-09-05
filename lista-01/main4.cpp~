@@ -24,7 +24,7 @@ int main()
 
 			int resultado = buscaSequencial(elemento, vetor, indice);
 
-			if(resultado==ELEMENTO_INESISTENTE)
+			if(resultado==-1)
 				cout << "Valor nao encontrado" << endl;
 			else
 			{
