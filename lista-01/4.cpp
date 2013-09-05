@@ -22,7 +22,7 @@ void menu()
 int quantidadeIndices()
 {
 	int quantIndices = 0;
-	int quantTotal = QUANT_TOTAL;
+	int quantTotal = tamVetor;
 	
 	while(quantTotal>0)
 	{
@@ -106,8 +106,8 @@ Indice *excluirElemento(int posicao, int *vetor)//Esse método retornará o novo
 int buscaSequencial(int elemento, int *vetor, Indice *indice)
 {
 	int posicao=0;
-
-	for(int i=1;i<tamVetor;i++)
+	cout << "quantidadeIndices() " << quantidadeIndices() << endl;
+	for(int i=1;i<quantidadeIndices();i++)
 	{
 		if(elemento < indice[i].info)
 		{

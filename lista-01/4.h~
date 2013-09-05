@@ -6,7 +6,7 @@
 
 #define VETOR_CHEIO -1
 #define ELEMENTO_DUPLO -2
-#define 
+#define ELEMENTO_INESISTENTE -3
 
 typedef struct _Indice
 {
@@ -23,7 +23,7 @@ extern Indice *criarIndice(int *vetor);
 
 extern void visualizarVetor(int *vetor);
 
-extern int inserirElemento(const int elemento, int *vector);
+extern int inserirElemento(const int elemento, int *vector, Indice *indice);
 extern Indice *excluirElemento(const int posicao, int *vetor);
 
 extern int buscaSequencial(const int elemento, int *vetor, Indice *indice);
