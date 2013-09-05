@@ -61,7 +61,7 @@ void visualizarVetor(int *vetor)
 		cout << vetor[i] << endl;
 }
 
-int inserirElemento(int elemento, int *vetor)
+int inserirElemento(int elemento, int *vetor, Indice *indice)
 {
 	if(tamVetor==QUANT_TOTAL)
 	{

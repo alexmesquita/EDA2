@@ -5,11 +5,6 @@ using namespace std;
 
 static int tamVetor=0;
 
-int tamanhoVetor()
-{
-	return tamVetor;
-}
-
 void menu()
 {
 	cout << "1 - Busca Sequencial" << endl;
