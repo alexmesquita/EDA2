@@ -23,9 +23,10 @@ extern Indice *criarIndice(int *vetor);
 
 extern void visualizarVetor(int *vetor);
 
-extern int inserirElemento(const int elemento, int *vector, Indice *indice);
+extern int inserirElemento(const int elemento, int *vector);
 extern Indice *excluirElemento(const int posicao, int *vetor);
 
+extern int buscaPosicao(const int elemento);
 extern int buscaSequencial(const int elemento, int *vetor, Indice *indice);
 
 #endif

@@ -103,9 +103,10 @@ Indice *excluirElemento(int posicao, int *vetor)//Esse método retornará o novo
 	return criarIndice(vetor);
 }
 
-int buscaSequencial(int elemento, int *vetor, Indice *indice)
+int buscaPosicao(int elemento, Indice *indice)
 {
 	int posicao=0;
+	
 	for(int i=1;i<quantidadeIndices();i++)
 	{
 		if(elemento < indice[i].info)
@@ -117,7 +118,14 @@ int buscaSequencial(int elemento, int *vetor, Indice *indice)
 		else
 			posicao = indice[i].posicao;
 	}
+	
+	return posicao;
+}
 
+int buscaSequencial(int elemento, int *vetor, Indice *indice)
+{
+	int posicao = buscaPosicao(elemento, indice);
+	
 	for(int i=posicao;i<posicao+TAM_INDICE || i<tamVetor;i++)
 	{
 		if(elemento==vetor[i])
