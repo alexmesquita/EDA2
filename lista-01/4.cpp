@@ -106,7 +106,6 @@ Indice *excluirElemento(int posicao, int *vetor)//Esse método retornará o novo
 int buscaSequencial(int elemento, int *vetor, Indice *indice)
 {
 	int posicao=0;
-	cout << "quantidadeIndices() " << quantidadeIndices() << endl;
 	for(int i=1;i<quantidadeIndices();i++)
 	{
 		if(elemento < indice[i].info)
