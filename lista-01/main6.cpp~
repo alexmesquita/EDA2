@@ -1,6 +1,4 @@
 #include <iostream>
-#include <cstdlib>
-#include <cstdio>
 #include "6.h"
 
 using namespace std;

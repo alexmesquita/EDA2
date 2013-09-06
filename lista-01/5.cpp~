@@ -66,7 +66,6 @@ int printVetor(int const *vetor)
 
 int printElementos(int const *vetor)
 {
-	bool existeElemento=false;
 	if(!vetor)
 	{
 		return NULO;
@@ -74,7 +73,6 @@ int printElementos(int const *vetor)
 	int i = begin;
 	while(end>=0 && vetor[i]>=0)
 	{
-		existeElemento=true;
 		if(i==begin)
 		{
 			cout << "[";
@@ -90,9 +88,8 @@ int printElementos(int const *vetor)
 			break;
 		}
 		
-		
 	}
-	if(!existeElemento)
+	if(end<0)
 	{
 		cout << "O vetor esta vazio" << endl;
 	}

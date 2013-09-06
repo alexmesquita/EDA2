@@ -1,4 +1,6 @@
 #include <iostream>
+#include <cstdlib>
+#include <cstdio>
 #include "5.h"
 
 using namespace std;
@@ -112,9 +114,16 @@ int main()
 		else if(opcao==6)
 		{
 			continuar=sair(vetor);
+			cout << "bye bye" << endl;
 		}
 		else
+		{
 			cout << "Opcao Invalida" << endl;
+		}
+		getchar();	
+		getchar();
+		system("clear");
+		
 	}
 	
 	return 0;

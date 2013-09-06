@@ -1,7 +1,7 @@
 #include <iostream>
 #include <cstdlib>
 #include <cstdio>
-#include "6.h"
+#include "5.h"
 
 using namespace std;
 
@@ -72,7 +72,7 @@ int main()
 			cout << "Elemento: ";
 			cin >> valor;
 
-			int resultado = buscaInterpolacao(vetor, valor);
+			int resultado = buscaBinariaAnel(vetor, valor);
 
 			switch(resultado)
 			{
@@ -102,8 +102,18 @@ int main()
 		}
 		else if(opcao==5)
 		{
+			int erro = printElementos(vetor);
+
+			switch(erro)
+			{
+				case NULO:
+					cout << "Erro: Vetor Nulo" << endl;
+				break;
+			}
+		}
+		else if(opcao==6)
+		{
 			continuar=sair(vetor);
-			cout << "bye bye" << endl;
 		}
 		else
 		{
@@ -112,6 +122,7 @@ int main()
 		getchar();	
 		getchar();
 		system("clear");
+		
 	}
 	
 	return 0;

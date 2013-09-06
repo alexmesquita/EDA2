@@ -15,6 +15,5 @@ extern int excluirElemento(int *vetor, int const valor);
 extern int inserirElemento(int *vetor, int const valor);
 extern int buscaInterpolacao(int const *vetor, int const valor);
 
-static int end=NULO;
 
 #endif

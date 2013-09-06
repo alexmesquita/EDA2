@@ -52,7 +52,7 @@ int printVetor(int const *vetor)
 		{
 			cout << "[";
 		}
-		cout << vetor[i];
+		cout << vetor[i] << endl;
 		if(i==end)
 		{
 			cout << "]" << endl;
@@ -144,6 +144,7 @@ int buscaInterpolacao(int const *vetor, int const valor)
 		
 		if(endAuxiliar != begin)
 		{
+		cout << begin << "-" << end << endl;
 			mid = begin + (endAuxiliar-begin) * (valor-vetor[begin]) / (vetor[endAuxiliar]-vetor[begin]);
 		}
 		if(vetor[mid] > valor)
@@ -164,6 +165,7 @@ int buscaInterpolacao(int const *vetor, int const valor)
 		}
 		else
 		{
+		cout << "chegou 6" << endl;
 			return mid;
 		}
 	}
